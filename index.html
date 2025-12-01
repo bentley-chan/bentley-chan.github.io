@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Retro Arcade</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body {
+      background: #222;
+      color: #00ff00;
+      font-family: 'Press Start 2P', monospace, cursive;
+      margin: 0; padding: 0;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 0 1rem 0;
+      font-size: 2rem;
+      letter-spacing: 3px;
+      text-shadow: 0 0 10px #0f0;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    nav button {
+      background: #333;
+      color: #0f0;
+      border: 2px solid #0f0;
+      font-family: inherit;
+      font-size: 1rem;
+      margin: 0 8px;
+      padding: 8px 24px;
+      cursor: pointer;
+      box-shadow: 0 0 8px #0f0;
+      transition: background 0.3s;
+    }
+    nav button.active {
+      background: #0f0;
+      color: #222;
+    }
+    .game-container {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      min-height: 400px;
+    }
+    .game-container.active {
+      display: flex;
+    }
+    canvas, .ttt-board, .minesweeper-board {
+      border: 2px solid #0f0;
+      box-shadow: 0 0 8px #0f0;
+      background: #111;
+      margin: auto;
+      display: block;
+      cursor: pointer;
+    }
+    /* Tic Tac Toe styles */
+    .ttt-board {
+      width: 306px;
+      height: 306px;
+      display: grid;
+      grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+      gap: 4px;
+    }
+    .ttt-cell {
+      width: 100px;
+      height: 100px;
+      font-size: 48px;
+      color: #0f0;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+      box-shadow: 0 0 6px #0f0;
+    }
+    /* Minesweeper styles */
+    .minesweeper-board {
+      width: 210px;
+      display: grid;
+      grid-template: repeat(7, 1fr) / repeat(7, 1fr);
+      gap: 2px;
+      margin-top: 12px;
+    }
+    .mine-cell {
+      width: 28px;
+      height: 28px;
+      font-size: 16px;
+      background: #222;
+      color: #0f0;
+      border: 1px solid #0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .mine-cell.revealed {
+      background: #111;
+      color: #ff0000;
+    }
+    .mine-cell.mine {
+      background: #f00;
+      color: #fff;
+    }
+    /* Import retro font */
+    @import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+  </style>
+</head>
+<body>
+  <header>RETRO ARCADE</header>
+  <nav>
+    <button id="tab-snake" class="active">Snake</button>
+    <button id="tab-pong">Pong</button>
+    <button id="tab-ttt">Tic-Tac-Toe</button>
+    <button id="tab-minesweeper">Minesweeper</button>
+  </nav>
+</body>
+</html>
